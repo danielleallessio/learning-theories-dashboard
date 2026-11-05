@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive dashboard of ten key learning theories with theorists, core ideas, and K-12 classroom prompts.">
+  <title>Learning Theories Dashboard for K-12 Teachers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">LT</span>
+        <div>
+          <h1>Learning Theories Dashboard</h1>
+          <p class="tagline">Ten foundational theories, the people behind them, and prompts you can use tomorrow in a K-12 classroom.</p>
+        </div>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <span class="theme-icon" aria-hidden="true">&#9790;</span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="controls" aria-label="Filter theories">
+      <div class="control search-control">
+        <label for="search">Search</label>
+        <input id="search" type="search" placeholder="Try: scaffolding, Bandura" autocomplete="off">
+      </div>
+
+      <div class="control">
+        <span class="control-label" id="familyLabel">Theory family</span>
+        <div class="chips" id="familyChips" role="group" aria-labelledby="familyLabel"></div>
+      </div>
+
+      <div class="control">
+        <span class="control-label" id="gradeLabel">Show prompts for</span>
+        <div class="segmented" id="gradeBands" role="radiogroup" aria-labelledby="gradeLabel"></div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Summary">
+      <div class="stat"><span class="stat-num" id="statShown">10</span><span class="stat-label">theories shown</span></div>
+      <div class="stat"><span class="stat-num" id="statTheorists">0</span><span class="stat-label">theorists featured</span></div>
+      <div class="stat"><span class="stat-num" id="statPrompts">0</span><span class="stat-label">classroom prompts</span></div>
+      <div class="stat"><span class="stat-num" id="statBand">All</span><span class="stat-label">grade band</span></div>
+    </section>
+
+    <p class="results-status" id="resultsStatus" role="status" aria-live="polite"></p>
+
+    <section class="grid" id="theoryGrid" aria-label="Learning theories"></section>
+
+    <p class="empty" id="emptyState" hidden>No theories match your search. Try a different word or clear the filters.</p>
+  </main>
+
+  <dialog id="detailDialog" class="detail-dialog" aria-labelledby="dialogTitle">
+    <div class="dialog-inner">
+      <button class="dialog-close" type="button" id="dialogClose" aria-label="Close details">&times;</button>
+      <div id="dialogContent"></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <p>Developed and maintained by Danielle Allessio using AI tools; licensed
+      <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener license">CC BY-NC 4.0</a>.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
